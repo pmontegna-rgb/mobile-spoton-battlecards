@@ -37,3 +37,4 @@ Click **"Continue to Dashboard"**. Right there at the top, you will see a public
 
 **You're done!** You can text or email that link to your sales team right now. They can open it on their iPhones/Androids, save it as a bookmark, or click "Add to Home Screen" to use it just like a native app!
 # mobile-spoton-battlecards
+# mobile-spoton-battlecards
