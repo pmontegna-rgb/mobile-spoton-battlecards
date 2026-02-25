@@ -1,36 +1,39 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# SpotOn Mobile Battlecards
 
-## Getting Started
+A mobile-first application for field sales representatives to use during competitive situations.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## How to Put This App on the Internet for Free
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Think of your code right now as a document saved only on your personal computer. To let your sales team opening it on their phones, we need to put a copy of it on a public "bulletin board" (GitHub), and then use a machine (Vercel) to turn that document into a real, live website.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Here are the exact 3 steps to do this, even if you've never coded before!
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Step 1: Put your Code on GitHub (The Bulletin Board)
+1. Go to [GitHub.com](https://github.com/) and create a free account if you don't have one. 
+2. Once logged in, look for the **"+"** icon in the top right corner and click **"New repository"**.
+3. Name the repository exactly this: `mobile-spoton-battlecards`.
+4. Do **not** check any boxes (like "Add a README"). Just scroll down and click the green **"Create repository"** button.
+5. You will see a page with some code commands. Look for the box that says *"…or push an existing repository from the command line"*. 
+6. Open the Terminal app on your Mac.
+7. Copy the 3 lines of code from that GitHub box, paste them into your Terminal, and press **Enter**. (It will ask you to quickly authenticate your GitHub account).
 
-## Learn More
+*Congratulations! Your code is now safely backed up on the internet.*
 
-To learn more about Next.js, take a look at the following resources:
+### Step 2: Connect it to Vercel (The Website Maker)
+1. Go to [Vercel.com](https://vercel.com/) and click **"Sign Up"**.
+2. When it asks how you want to sign up, choose **"Continue with GitHub"**. This links Vercel directly to your new bulletin board!
+3. Once you are logged into the Vercel dashboard, click the black **"Add New..."** button in the top right, and select **"Project"**.
+4. You will see a list of your GitHub repositories. Find `mobile-spoton-battlecards` and click the **"Import"** button next to it.
+5. A setup screen will appear. **Do not change any settings.** Vercel is smart enough to know exactly what to do.
+6. Click the big blue **"Deploy"** button.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Step 3: Wait 60 Seconds
+Now, the Vercel machine goes to work. You'll see some terminal text scrolling by as it builds your app. 
+When it is done, confetti will fall on your screen!
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Click **"Continue to Dashboard"**. Right there at the top, you will see a public link (Domain) that looks something like `mobile-spoton-battlecards.vercel.app`.
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+**You're done!** You can text or email that link to your sales team right now. They can open it on their iPhones/Androids, save it as a bookmark, or click "Add to Home Screen" to use it just like a native app!
+# mobile-spoton-battlecards
