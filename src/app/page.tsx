@@ -1,53 +1,85 @@
 "use client"
 
-import { competitors } from "@/data/competitors"
 import { motion } from "framer-motion"
 import Link from "next/link"
-import { ChevronRight, ShieldAlert } from "lucide-react"
+import { Zap, ChevronRight, ShieldAlert, UtensilsCrossed } from "lucide-react"
+import { UserMenu } from "@/components/UserMenu"
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-slate-950 text-slate-50 p-6 selection:bg-rose-500/30">
-      <div className="max-w-md mx-auto space-y-8 mt-12">
+    <main className="min-h-screen bg-slate-950 text-slate-50 flex flex-col items-center justify-center p-6 selection:bg-rose-500/30">
+      {/* User Session Header */}
+      <div className="fixed top-0 right-0 p-6 z-50">
+        <UserMenu />
+      </div>
 
-        <header className="space-y-2 text-center">
-          <motion.div
-            initial={{ scale: 0.9, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            className="w-16 h-16 bg-rose-500/10 rounded-2xl flex items-center justify-center mx-auto mb-6"
-          >
+      <div className="max-w-md w-full space-y-10">
+
+        {/* Header */}
+        <motion.header
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4 }}
+          className="text-center space-y-3"
+        >
+          <div className="w-16 h-16 bg-rose-500/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
             <ShieldAlert className="w-8 h-8 text-rose-500" />
-          </motion.div>
-          <h1 className="text-3xl font-bold tracking-tight">Battlecards</h1>
-          <p className="text-slate-400">Select a competitor to view talking points.</p>
-        </header>
+          </div>
+          <h1 className="text-3xl font-bold tracking-tight">SpotOn Competitive Battlecards</h1>
+          <p className="text-slate-400">Choose your product line to get started.</p>
+        </motion.header>
 
-        <div className="space-y-3 pt-4">
-          {competitors.map((comp, idx) => (
-            <motion.div
-              key={comp.id}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: idx * 0.1 }}
-            >
-              <Link href={`/competitor/${comp.id}`}>
-                <div className="group relative overflow-hidden rounded-2xl border border-slate-800 bg-slate-900/50 p-5 transition-all hover:bg-slate-800 hover:border-slate-700 active:scale-[0.98]">
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <h2 className="text-xl font-semibold text-slate-100">{comp.name}</h2>
-                      <p className="text-sm text-slate-500 mt-1">{comp.productType} Compete</p>
+        {/* Product Type Cards */}
+        <div className="space-y-4">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1 }}
+          >
+            <Link href="/express">
+              <div className="group relative overflow-hidden rounded-2xl border border-slate-800 bg-slate-900/50 p-6 transition-all hover:bg-slate-800 hover:border-slate-700 active:scale-[0.98]">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-4">
+                    <div className="w-12 h-12 rounded-xl bg-amber-500/10 flex items-center justify-center flex-shrink-0">
+                      <Zap className="w-6 h-6 text-amber-400" />
                     </div>
-                    <div className="h-10 w-10 rounded-full bg-slate-800 flex items-center justify-center group-hover:bg-rose-500 group-hover:text-white transition-colors">
-                      <ChevronRight className="w-5 h-5 text-slate-400 group-hover:text-white" />
+                    <div>
+                      <h2 className="text-xl font-bold text-slate-100">SpotOn Express</h2>
                     </div>
                   </div>
-
-                  {/* Subtle decorative gradient */}
-                  <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-slate-700 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                  <div className="h-10 w-10 rounded-full bg-slate-800 flex items-center justify-center group-hover:bg-amber-500 transition-colors flex-shrink-0">
+                    <ChevronRight className="w-5 h-5 text-slate-400 group-hover:text-white transition-colors" />
+                  </div>
                 </div>
-              </Link>
-            </motion.div>
-          ))}
+                <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-amber-700 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+              </div>
+            </Link>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+          >
+            <Link href="/rpos">
+              <div className="group relative overflow-hidden rounded-2xl border border-slate-800 bg-slate-900/50 p-6 transition-all hover:bg-slate-800 hover:border-slate-700 active:scale-[0.98]">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-4">
+                    <div className="w-12 h-12 rounded-xl bg-rose-500/10 flex items-center justify-center flex-shrink-0">
+                      <UtensilsCrossed className="w-6 h-6 text-rose-400" />
+                    </div>
+                    <div>
+                      <h2 className="text-xl font-bold text-slate-100">SpotOn RPOS</h2>
+                    </div>
+                  </div>
+                  <div className="h-10 w-10 rounded-full bg-slate-800 flex items-center justify-center group-hover:bg-rose-500 transition-colors flex-shrink-0">
+                    <ChevronRight className="w-5 h-5 text-slate-400 group-hover:text-white transition-colors" />
+                  </div>
+                </div>
+                <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-rose-700 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+              </div>
+            </Link>
+          </motion.div>
         </div>
 
       </div>
