@@ -4,11 +4,18 @@ import fs from 'fs';
 import path from 'path';
 import { BattlecardData } from '@/data/competitors';
 
-// Load credentials
+// Load credentials (checks file first, then environment variable for Vercel)
 const CREDENTIALS_PATH = path.join(process.cwd(), 'google-credentials.json');
 let credentials: { client_email?: string, private_key?: string } = {};
+
 if (fs.existsSync(CREDENTIALS_PATH)) {
     credentials = JSON.parse(fs.readFileSync(CREDENTIALS_PATH, 'utf8'));
+} else if (process.env.GOOGLE_SERVICE_ACCOUNT_JSON) {
+    try {
+        credentials = JSON.parse(process.env.GOOGLE_SERVICE_ACCOUNT_JSON);
+    } catch (e) {
+        console.error("Error parsing GOOGLE_SERVICE_ACCOUNT_JSON:", e);
+    }
 }
 
 // Authenticate via JWT
