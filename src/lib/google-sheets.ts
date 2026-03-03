@@ -33,6 +33,35 @@ export async function getGoogleSheet() {
     return doc;
 }
 
+export async function getUsageSheet() {
+    const doc = await getGoogleSheet();
+    let sheet = doc.sheetsByTitle['Usage'];
+
+    if (!sheet) {
+        sheet = await doc.addSheet({
+            title: 'Usage',
+            headerValues: ['timestamp', 'email', 'path', 'event', 'metadata'],
+        });
+    }
+
+    return sheet;
+}
+
+export async function logUsageEvent(data: { email: string, path: string, event: string, metadata?: string }) {
+    try {
+        const sheet = await getUsageSheet();
+        await sheet.addRow({
+            timestamp: new Date().toISOString(),
+            email: data.email,
+            path: data.path,
+            event: data.event,
+            metadata: data.metadata || '',
+        });
+    } catch (error) {
+        console.error("Error logging usage event:", error);
+    }
+}
+
 export async function getCompetitorsSheet() {
     const doc = await getGoogleSheet();
     let sheet = doc.sheetsByTitle['Competitors'];
